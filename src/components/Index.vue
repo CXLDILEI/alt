@@ -1,17 +1,5 @@
 <template>
   <div>
-    <b-navbar toggleable="lg" type="dark" variant="dark" fixed="top">
-      <b-navbar-brand href="#">
-        <img class="logo" src="../assets/logo-ci@2x.png" alt="">
-      </b-navbar-brand>
-      <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
-      <b-collapse id="nav-collapse" is-nav>
-        <b-navbar-nav>
-          <b-nav-item href="#">Index</b-nav-item>
-          <b-nav-item href="#">About</b-nav-item>
-        </b-navbar-nav>
-      </b-collapse>
-  </b-navbar>
   <!-- 轮播区 -->
   <div class="banner">
     <div class="banner-content">
@@ -106,9 +94,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.logo{
-  width: 100px; 
-}
 .banner{
   width: 100%;
   background:-webkit-linear-gradient(#fff,#e7e7e7);

@@ -1,5 +1,17 @@
 <template>
   <div id="app">
+    <b-navbar toggleable="lg" type="dark" variant="dark" fixed="top">
+      <b-navbar-brand href="#">
+        <img class="logo" src="./assets/logo-ci@2x.png" alt="">
+      </b-navbar-brand>
+      <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+      <b-collapse id="nav-collapse" is-nav>
+        <b-navbar-nav>
+          <b-nav-item href="#">Index</b-nav-item>
+          <b-nav-item href="#">About</b-nav-item>
+        </b-navbar-nav>
+      </b-collapse>
+    </b-navbar>
     <router-view/>
   </div>
 </template>
@@ -22,6 +34,9 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+.logo{
+  width: 100px; 
 }
 @media (min-width: 768px){ 
   .banner-content{
