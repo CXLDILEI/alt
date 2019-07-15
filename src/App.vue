@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <b-navbar toggleable="lg" type="dark" variant="dark" fixed="top">
-      <b-navbar-brand href="#">
+      <b-navbar-brand @click="toIndex" style="cursor:pointer;">
         <img class="logo" src="./assets/logo-ci@2x.png" alt="">
       </b-navbar-brand>
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
@@ -23,28 +23,51 @@ export default {
   name: 'app',
   components: {
     Index
+  },
+  methods:{
+    toIndex(){
+      this.$router.push({name:'Index'})
+    }
   }
 }
 </script>
-
 <style>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
+}
+.content{
+  margin-top: 56px;
 }
 .logo{
   width: 100px; 
 }
-@media (min-width: 768px){ 
+/* 大于768px */
+@media (min-width: 768px){
   .banner-content{
     padding: 0 300px;
   }
-  
+  .bottom{
+    padding: 40px;
+  }
+  .bottom-logo img{
+  width: 200px;
 }
-
+}
+/* 小于768px */
+@media (max-width: 768px){
+  .commodity{
+    border-bottom: 1px solid #f7f7f7;
+  }
+  .bottom{
+    padding: 20px;
+  }
+  .bottom-logo img{
+    width: 100px;
+  }
+}
 /* 中等屏幕（桌面显示器，大于等于 992px） */
 @media (min-width: 992px) {
 
@@ -58,7 +81,8 @@ export default {
    
 }
  /* 小于375 iphone-6,7,8 */
- @media (max-width: 375px) {
+@media (max-width: 375px) {
+  
+}
 
- }
 </style>

@@ -7,7 +7,7 @@ import router from './router/index'
 
 Vue.use(BootstrapVue)
 Vue.config.productionTip = false
-
+const $router = router
 new Vue({
   render: h => h(App),
   router
