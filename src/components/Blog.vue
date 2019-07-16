@@ -4,7 +4,7 @@
         <h3 class="text-center">ALTAiR BLOG</h3>
         <!-- 列表 -->
         <div class="row">
-            <div class="col-xs-6 col-md-3 commodity"  v-for="(item,index) in list" :key="index" @click="toDetail">
+            <div class="col-xs-6 col-md-3 commodity"  v-for="(item,index) in list" :key="index">
                 <div class="thumbnail commodity-left">
                     <img :src="item.src" alt="">
                 </div>
@@ -39,9 +39,7 @@ export default {
         
     },
     methods: {
-        toDetail(){
-            this.$router.push({name:'Detail'})
-        }
+       
     }
 }
 </script>

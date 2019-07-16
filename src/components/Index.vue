@@ -1,38 +1,32 @@
 <template>
   <div class="content">
-    <!-- 轮播区 -->
-    <div class="banner">
-      <div class="banner-content">
-        <b-carousel
-        id="carousel-1"
-        v-model="slide"
-        :interval="5000"
-        controls
-        indicators
-        fade
-        background="#ababab"
-        img-width="1024"
-        img-height="480"
-        style="text-shadow: 1px 1px 2px #333;"
-        @sliding-start="onSlideStart"
-        @sliding-end="onSlideEnd"
-      >
-        <!-- Text slides with image -->
-        <b-carousel-slide
-          v-for="(item,index) in bannerItem"
-          :key="index"
-          :text="item.title"
-          :img-src="item.src"
-        ></b-carousel-slide>
-      </b-carousel>
+    <!-- 顶部图片区 -->
+    <b-container>
+      <b-row>
+        <b-col>
+          <img class="index-top-img" :src="topImg.src" alt="">
+        </b-col>
+      </b-row>
+    </b-container>
+    <!-- 贩售情报 -->
+    <b-container class="intelligence">
+      <div class="intelligence-title">
+        <h2>NEW ITEM</h2>
+        <small>新製品情報</small>
       </div>
-    </div>
+      <b-row>
+        <b-col class="intelligence-content" cols="12" md="6" v-for="(item,index) in intelList" @click="toDetail(item)">
+          <img :src="item.src" alt="">
+        </b-col>
+      </b-row>
+    </b-container>
     <!-- 公告板 -->
     <div class="public-content">
       <h4 class="text-center">公告板块</h4>
-    <b-list-group>
+    <!-- <b-list-group>
       <b-list-group-item class="list-item" v-for="(item,i) in public" :key="i" @click="toBlog(item)">{{item.title}}</b-list-group-item>
-    </b-list-group>
+    </b-list-group> -->
+      <div class="text-center">这是公共内容</div>
     </div>
     <!-- 底部联系 -->
     <div class="bottom">
@@ -59,12 +53,14 @@ export default {
       return {
         slide: 0,
         sliding: null,
+        topImg:{src:'https://picsum.photos/1024/480/?image=52'},
         bannerItem:[
           {title:"Nulla vitae elit libero, a pharetra augue mollis interdum.",src:"https://picsum.photos/1024/480/?image=52"},
           {title:"",src:"https://picsum.photos/1024/480/?image=54"},
           {title:"",src:"https://picsum.photos/1024/480/?image=58"}
         ],
-        public:[{title:'Cras justo odio',src:'',id:1},{title:'Dapibus ac facilisis in',src:'',id:2},{title:'ac consectetur ac',src:'',id:3},{title:'Vestibulum at eros',src:'',id:4}]
+        public:[{title:'Cras justo odio',src:'',id:1},{title:'Dapibus ac facilisis in',src:'',id:2},{title:'ac consectetur ac',src:'',id:3},{title:'Vestibulum at eros',src:'',id:4}],
+        intelList:[{src:require('../assets/20190521114744_XPBuIdqH.jpg')},{src:require('../assets/20190521114744_XPBuIdqH.jpg')},{src:require('../assets/20190521114744_XPBuIdqH.jpg')},{src:require('../assets/20190521114744_XPBuIdqH.jpg')}]
       }
     },
     methods: {
@@ -74,8 +70,8 @@ export default {
       onSlideEnd(slide) {
         this.sliding = false
       },
-      toBlog(item){
-        this.$router.push({name:'Blog',params:{item:item}} );
+      toDetail(item){
+          this.$router.push({name:'Detail',params:{item:item}})
       }
     }
 }
@@ -83,11 +79,40 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+@media (max-width: 768px){
+  .intelligence-content{
+    padding: 0px;
+  }
+}
+@media (min-width: 768px){
+  .intelligence-content{
+    padding: 5px;
+  }
+}
+.index-top-img{
+  width: 100%;
+}
 .banner{
   width: 100%;
   background:-webkit-linear-gradient(#fff,#e7e7e7);
 }
-
+.intelligence-title h2{
+  text-align: center
+}
+.intelligence-title{
+  padding: 15px 15px;
+}
+.intelligence-title small{
+  display: block;
+  text-align: center;
+}
+.intelligence-content{
+  cursor: pointer;
+}
+.intelligence img{
+  width: 100%;
+  border: 1px solid #ddd;
+}
 .list-item{
   border: none;
   border-style: none none dotted;
@@ -99,7 +124,6 @@ export default {
 .bottom{
   display: flex;
   width: 100%;
-  
   background-color: #222;
   color: #fffff8;
 }

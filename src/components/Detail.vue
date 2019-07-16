@@ -11,7 +11,7 @@
             controls
             indicators
             background="#ababab"
-            img-width="1024"
+            img-width ="1024"
             img-height="480"
             fade
             style="text-shadow: 1px 1px 2px #333;"
@@ -42,7 +42,11 @@
             <img src="https://picsum.photos/1024/480/?image=54" alt="">
           </b-col>
         </b-row>
-      </b-container> 
+      </b-container>
+      <!-- 跳转 -->
+      <div class="submit">
+        <div class="submit-btn" squared >购买<a href=""></a></div>
+      </div> 
   </div>
 </template>
 
@@ -58,7 +62,7 @@ export default {
           {title:"",src:"https://picsum.photos/1024/480/?image=58"}
         ],
         list: [
-          { content: '40', title: 'Dickerson'},
+          { content: '40sadfsadfsadfqwerqwrwqrsdfsdafdsafdsafsadfadsf', title: 'DickersonDickerson'},
           { content: '21', title: 'Larsen'},
           { content: '89', title: 'Geneva'},
           { content: '38', title: 'Jami'}
@@ -104,14 +108,12 @@ h4:after{
 }
 .banner{
   width: 100%;
-  /* background:-webkit-linear-gradient(#fff,#e7e7e7); */
 }
 .tab-list{
   margin-top: 20px;
 }
 .myTabs{
   display: flex;
-  width: 80vw;
   margin: 0 auto;
 }
 .myTabs-item{
@@ -122,16 +124,36 @@ h4:after{
   background-color: #333;
   color: #fff;
   text-align: center;
+  word-wrap: break-word;
+  word-break: break-all;
 }
 .myTabs-content{
   background-color: #ededed;
   color: #000;
+  word-wrap: break-word;
+  word-break: break-all;
 }
 .img-list{
   padding: 20px;
-  margin-top: 30px;
+  margin-bottom: 35px;
 }
 .img-list img{
   width: 100%;
+}
+.submit{
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background-color: rgba(0,0,0,.8);
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+  font-size: 18px;
+  z-index: 10;
 }
 </style>
