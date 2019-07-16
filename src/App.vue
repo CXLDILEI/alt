@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <!-- 顶部导航栏 -->
     <b-navbar toggleable="lg" type="dark" variant="dark" fixed="top">
       <b-navbar-brand  @click="go('Index')" style="cursor:pointer;">
         <img class="logo" src="./assets/logo-ci@2x.png" alt="">
@@ -14,7 +15,6 @@
     <router-view/>
   </div>
 </template>
-
 <script>
 export default {
   name: 'app',

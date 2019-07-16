@@ -15,8 +15,6 @@
             img-height="480"
             fade
             style="text-shadow: 1px 1px 2px #333;"
-            @sliding-start="onSlideStart"
-            @sliding-end="onSlideEnd"
           >
             <!-- Text slides with image -->
             <b-carousel-slide
@@ -24,7 +22,10 @@
               :key="index"
               :text="item.title"
               :img-src="item.src"
-            ></b-carousel-slide>
+              img-width ="1024"
+              img-height="480"
+            >
+            </b-carousel-slide>
           </b-carousel>
         </div>
       </div>
@@ -43,7 +44,7 @@
           </b-col>
         </b-row>
       </b-container>
-      <!-- 跳转 -->
+      <!-- 跳转购买页 -->
       <div class="submit">
         <div class="submit-btn" squared >购买<a href=""></a></div>
       </div> 
@@ -56,11 +57,13 @@ export default {
       return {  
         slide: 0,
         sliding: null,
+        // 轮播数据
         bannerItem:[
-          {title:"Nulla vitae elit libero, a pharetra augue mollis interdum.",src:"https://picsum.photos/1024/480/?image=52"},
+          {title:"Nulla vitae elit libero, a pharetra augue mollis interdum.",src:"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1563277740226&di=48836d2770f7393616418b546ed338b0&imgtype=0&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2Fa77c67ea01f32fe94053b653caefb1dc5783bf6947024-zYrxl3_fw658"},
           {title:"",src:"https://picsum.photos/1024/480/?image=54"},
           {title:"",src:"https://picsum.photos/1024/480/?image=58"}
         ],
+        // 表格数据
         list: [
           { content: '40sadfsadfsadfqwerqwrwqrsdfsdafdsafdsafsadfadsf', title: 'DickersonDickerson'},
           { content: '21', title: 'Larsen'},
@@ -76,12 +79,7 @@ export default {
         
     },
     methods: {
-      onSlideStart(slide) {
-        this.sliding = true
-      },
-      onSlideEnd(slide) {
-        this.sliding = false
-      },
+      
     }
 }
 </script>
@@ -103,6 +101,7 @@ h4:after{
   height: 2px;
   background-color: aqua;
 }
+
 .banner-content{
   margin-top: 20px;
 }
