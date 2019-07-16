@@ -47,10 +47,10 @@ export default {
     padding: 0 20vw;
   }
   .bottom{
-    padding: 40px;
+    padding: 20px;
   }
   .bottom-logo img{
-  width: 200px;
+  width: 150px;
 }
 .logo{
   width: 200px; 
@@ -68,7 +68,7 @@ export default {
     border-bottom: 1px solid #f7f7f7;
   }
   .bottom{
-    padding: 20px;
+    padding: 10px;
   }
   .bottom-logo img{
     width: 100px;
