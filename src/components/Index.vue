@@ -15,7 +15,7 @@
         <small>新製品情報</small>
       </div>
       <b-row>
-        <b-col class="intelligence-content" cols="12" md="6" v-for="(item,index) in intelList" @click="toDetail(item)">
+        <b-col class="intelligence-content" cols="12" md="6" v-for="(item,index) in intelList" @click="toDetail(item)" :key="index">
           <img :src="item.src" alt="">
         </b-col>
       </b-row>
@@ -26,7 +26,7 @@
     <!-- <b-list-group>
       <b-list-group-item class="list-item" v-for="(item,i) in public" :key="i" @click="toBlog(item)">{{item.title}}</b-list-group-item>
     </b-list-group> -->
-      <div class="text-center">{{public.content}}</div>
+      <div class="text-center">{{publicdata.content}}</div>
     </div>
     <!-- 底部联系 -->
     <div class="bottom">
@@ -56,7 +56,7 @@ export default {
         // 头部的图片
         topImg:{src:'https://picsum.photos/1024/480/?image=52'},
         // 公告区数据
-        public:{title:'公告标题',content:'这是公共内容'},
+        publicdata:{title:'公告标题',content:'这是公共内容'},
         // 产品列表
         intelList:[{src:require('../assets/20190521114744_XPBuIdqH.jpg')},{src:require('../assets/20190521114744_XPBuIdqH.jpg')},{src:require('../assets/20190521114744_XPBuIdqH.jpg')},{src:require('../assets/20190521114744_XPBuIdqH.jpg')}]
       }
@@ -66,8 +66,6 @@ export default {
         .then(function(res){
           console.log(JSON.parse(decodeURIComponent(res.data.data)))
         });
-      console.log(decodeURIComponent('data=%7b%22buy%22%3a%22%e8%b4%ad%e4%b9%b0%e9%93%be%e6%8e%a5%22%2c%22commodity%22%3a%22test%22%2c%22editer%22%3a%22666%22%2c%22idshop%22%3a1%2c%22img1%22%3a%22img1URL%22%2c%22img2%22%3a%22img2URL%22%2c%22img3%22%3a%22img3URL%22%2c%22img4%22%3a%22img4URL%22%2c%22name%22%3a%22%e5%95%86%e5%93%81%e5%90%8d%e7%a7%b0%22%2c%22price%22%3a%2259.00RMB%22%2c%22size%22%3a%22%e5%95%86%e5%93%81%e5%b0%ba%e5%af%b8%22%2c%22time%22%3a%222018-01-02%22%7d'))
-      
     },
     methods: {
       // 跳转详情页

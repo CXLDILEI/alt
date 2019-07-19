@@ -11,8 +11,8 @@
             controls
             indicators
             background="#ababab"
-            img-width ="1024"
-            img-height="480"
+            img-width ="500"
+            img-height="500"
             fade
             style="text-shadow: 1px 1px 2px #333;"
           >
@@ -22,7 +22,7 @@
               :key="index"
               :text="item.title"
               :img-src="item.src"
-              img-width ="1024"
+              img-width ="500"
               img-height="480"
             >
             </b-carousel-slide>
@@ -40,7 +40,7 @@
       <b-container class="img-list">
         <b-row>
           <b-col>
-            <img src="https://picsum.photos/1024/480/?image=54" alt="">
+            <img src="https://alter-web.jp/uploads/products/20190621142138_YkYX0PIq.jpg" alt="">
           </b-col>
         </b-row>
       </b-container>
@@ -60,9 +60,12 @@ export default {
         sliding: null,
         // 轮播数据
         bannerItem:[
-          {title:"Nulla vitae elit libero, a pharetra augue mollis interdum.",src:"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1563277740226&di=48836d2770f7393616418b546ed338b0&imgtype=0&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2Fa77c67ea01f32fe94053b653caefb1dc5783bf6947024-zYrxl3_fw658"},
-          {title:"",src:"https://picsum.photos/1024/480/?image=54"},
-          {title:"",src:"https://picsum.photos/1024/480/?image=58"}
+          {title:"",src:"https://alter-web.jp/uploads/products/20190621120444_bjmnckL4.jpg"},
+          {title:"",src:"https://alter-web.jp/uploads/products/20190621120450_REks0iCQ.jpg"},
+          {title:"",src:"https://alter-web.jp/uploads/products/20190621120455_QH58qjUW.jpg"},
+          {title:"",src:"https://alter-web.jp/uploads/products/20190621120502_a1liprPo.jpg"},
+          {title:"",src:"https://alter-web.jp/uploads/products/20190621120508_6D2pCDhQ.jpg"},
+          {title:"",src:"https://alter-web.jp/uploads/products/20190621120515_BSyAAKa2.jpg"},
         ],
         // 表格数据
         list: [
@@ -86,6 +89,7 @@ export default {
 </script>
 
 <style scoped>
+
 h4{
   padding-top: 8px;
   text-align: center;

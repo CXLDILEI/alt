@@ -44,7 +44,7 @@ export default {
     margin-top: 76px;
   }
   .banner-content{
-    padding: 0 20vw;
+    padding: 0 30vw;
   }
   .bottom{
     padding: 20px;
