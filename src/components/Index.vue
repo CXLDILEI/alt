@@ -61,12 +61,20 @@ export default {
         intelList:[{src:require('../assets/20190521114744_XPBuIdqH.jpg')},{src:require('../assets/20190521114744_XPBuIdqH.jpg')},{src:require('../assets/20190521114744_XPBuIdqH.jpg')},{src:require('../assets/20190521114744_XPBuIdqH.jpg')}]
       }
     },
+    created(){
+      this.$axios.get('http://14.23.115.53:8688/testProject/getAll.do')
+        .then(function(res){
+          console.log(JSON.parse(decodeURIComponent(res.data.data)))
+        });
+      console.log(decodeURIComponent('data=%7b%22buy%22%3a%22%e8%b4%ad%e4%b9%b0%e9%93%be%e6%8e%a5%22%2c%22commodity%22%3a%22test%22%2c%22editer%22%3a%22666%22%2c%22idshop%22%3a1%2c%22img1%22%3a%22img1URL%22%2c%22img2%22%3a%22img2URL%22%2c%22img3%22%3a%22img3URL%22%2c%22img4%22%3a%22img4URL%22%2c%22name%22%3a%22%e5%95%86%e5%93%81%e5%90%8d%e7%a7%b0%22%2c%22price%22%3a%2259.00RMB%22%2c%22size%22%3a%22%e5%95%86%e5%93%81%e5%b0%ba%e5%af%b8%22%2c%22time%22%3a%222018-01-02%22%7d'))
+      
+    },
     methods: {
       // 跳转详情页
       toDetail(item){
           this.$router.push({name:'Detail',params:{item:item}})
       }
-    }
+    },
 }
 </script>
 

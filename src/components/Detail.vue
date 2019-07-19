@@ -46,7 +46,8 @@
       </b-container>
       <!-- 跳转购买页 -->
       <div class="submit">
-        <div class="submit-btn" squared >购买<a href=""></a></div>
+        <!-- <div class="submit-btn" squared >购买<a href=""></a></div> -->
+        <b-link class="submit-btn" href="#">购买</b-link>
       </div> 
   </div>
 </template>
@@ -154,5 +155,9 @@ h4:after{
   cursor: pointer;
   font-size: 18px;
   z-index: 10;
+}
+.submit-btn{
+  text-decoration:none;
+  color: #fff;
 }
 </style>
