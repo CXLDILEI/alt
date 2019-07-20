@@ -23,7 +23,7 @@
     <!-- 公告板 -->
     <div class="public-content">
       <h4 class="text-center">公告板块</h4>
-      <div class="text-center">{{publicdata.content}}</div>
+      <div class="text-center">这是公共内容</div>
     </div>
     <!-- 底部联系 -->
     <div class="bottom">
@@ -52,12 +52,8 @@ export default {
         sliding: null,
         // 头部的图片
         topImg:{src:'https://picsum.photos/1024/480/?image=52'},
-        // 公告区数据
-        publicdata:{title:'公告标题',content:'这是公共内容'},
         // 产品列表
-        intelList:[
-         
-        ]
+        intelList:[]
       }
     },
     created(){
