@@ -86,6 +86,9 @@ export default {
   .myTabs{
     font-size: 14px;
   }
+  .detail-title{
+    font-size: 1.2rem
+  }
 }
 
  /* 小于375 iphone-6,7,8 */

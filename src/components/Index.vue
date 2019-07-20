@@ -74,6 +74,7 @@ export default {
       // 跳转详情页
       toDetail(item){
           this.$router.push({name:'Detail',params:{item:item}})
+          window.localStorage.setItem('idshop',JSON.stringify(item.idshop))
       }
     },
 }

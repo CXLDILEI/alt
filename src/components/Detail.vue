@@ -1,7 +1,7 @@
 <template>
   <div class="content">
       <!-- 轮播区 -->
-      <h4>{{title}}</h4>
+      <h4 class="detail-title">{{title}}</h4>
       <div class="banner">
         <div class="banner-content">
           <b-carousel
@@ -62,7 +62,7 @@
       <!-- 跳转购买页 -->
       <div class="submit">
         <!-- <div class="submit-btn" squared >购买<a href=""></a></div> -->
-        <b-link class="submit-btn" :href="shophref">购买</b-link>
+        <div class="submit-btn" @click="toShop">购买</div>
       </div> 
   </div>
 </template>
@@ -77,32 +77,47 @@ export default {
         list: [
         ],
         form:[],
-        shophref:'',
         imgShow:'',
         title:''
       }
     },
     created(){
       const self = this;
-      self.form = this.$route.params.item
-      console.log(this.$route.params.item);
-      self.list.push(
-        {title:'作品名',content:self.form.name},
-        {title:'発売月',content:self.form.time},
-        {title:'価格',content:self.form.price},
-        {title:'サイズ',content:self.form.size},
-        {title:'原 型',content:self.form.commodity},
-        {title:'彩 色',content:self.form.editer},
-      )
-      self.shophref = self.form.buy
-      self.imgShow = self.form.imgShow
-      self.title = self.form.name
+      if(this.$route.params.item === undefined){
+        self.$axios.get(self.$url)
+        .then(function(res){
+          let data = JSON.parse(decodeURIComponent(res.data.data));
+          data.forEach((item,index)=>{
+            if(item.idshop == window.localStorage.getItem('idshop')){
+              self.form = item
+              self.init()
+            }
+          })
+        });
+      }else{
+        self.form = this.$route.params.item
+        self.init()
+      }
     },
     mounted(){
         
     },
     methods: {
-      
+      toShop(){
+        window.location = `${this.form.buy}`;
+      },
+      init(){
+        this.list.push(
+        {title:'作品名',content:this.form.name},
+        {title:'発売月',content:this.form.time},
+        {title:'価格',content:this.form.price},
+        {title:'サイズ',content:this.form.size},
+        {title:'原 型',content:this.form.commodity},
+        {title:'彩 色',content:this.form.editer},
+        )
+        this.imgShow = this.form.imgShow
+        this.title = this.form.name
+      }
     }
 }
 </script>
@@ -118,7 +133,7 @@ h4:after{
   position: absolute;
   display: block;
   content: "";
-  top: 45px;
+  bottom: -8px;
   left: 50%;
   transform: translateX(-50%);
   width: 80px;
