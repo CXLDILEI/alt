@@ -10,6 +10,7 @@ Vue.use(BootstrapVue)
 Vue.config.productionTip = false
 Vue.prototype.$axios=axios
 const $router = router
+Vue.prototype.$url = 'http://14.23.115.53:8688/testProject/getAll.do';
 
 new Vue({
   render: h => h(App),

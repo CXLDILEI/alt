@@ -1,7 +1,7 @@
 <template>
   <div class="content">
       <!-- 轮播区 -->
-      <h4>详情</h4>
+      <h4>{{title}}</h4>
       <div class="banner">
         <div class="banner-content">
           <b-carousel
@@ -18,10 +18,25 @@
           >
             <!-- Text slides with image -->
             <b-carousel-slide
-              v-for="(item,index) in bannerItem"
-              :key="index"
-              :text="item.title"
-              :img-src="item.src"
+              :img-src="form.img1"
+              img-width ="500"
+              img-height="480"
+            >
+            </b-carousel-slide>
+            <b-carousel-slide
+              :img-src="form.img2"
+              img-width ="500"
+              img-height="480"
+            >
+            </b-carousel-slide>
+            <b-carousel-slide
+              :img-src="form.img3"
+              img-width ="500"
+              img-height="480"
+            >
+            </b-carousel-slide>
+            <b-carousel-slide
+              :img-src="form.img4"
               img-width ="500"
               img-height="480"
             >
@@ -40,14 +55,14 @@
       <b-container class="img-list">
         <b-row>
           <b-col>
-            <img src="https://alter-web.jp/uploads/products/20190621142138_YkYX0PIq.jpg" alt="">
+            <img :src="imgShow" alt="">
           </b-col>
         </b-row>
       </b-container>
       <!-- 跳转购买页 -->
       <div class="submit">
         <!-- <div class="submit-btn" squared >购买<a href=""></a></div> -->
-        <b-link class="submit-btn" href="#">购买</b-link>
+        <b-link class="submit-btn" :href="shophref">购买</b-link>
       </div> 
   </div>
 </template>
@@ -58,26 +73,30 @@ export default {
       return {  
         slide: 0,
         sliding: null,
-        // 轮播数据
-        bannerItem:[
-          {title:"",src:"https://alter-web.jp/uploads/products/20190621120444_bjmnckL4.jpg"},
-          {title:"",src:"https://alter-web.jp/uploads/products/20190621120450_REks0iCQ.jpg"},
-          {title:"",src:"https://alter-web.jp/uploads/products/20190621120455_QH58qjUW.jpg"},
-          {title:"",src:"https://alter-web.jp/uploads/products/20190621120502_a1liprPo.jpg"},
-          {title:"",src:"https://alter-web.jp/uploads/products/20190621120508_6D2pCDhQ.jpg"},
-          {title:"",src:"https://alter-web.jp/uploads/products/20190621120515_BSyAAKa2.jpg"},
-        ],
         // 表格数据
         list: [
-          { content: '40sadfsadfsadfqwerqwrwqrsdfsdafdsafdsafsadfadsf', title: 'DickersonDickerson'},
-          { content: '21', title: 'Larsen'},
-          { content: '89', title: 'Geneva'},
-          { content: '38', title: 'Jami'}
-        ]
+        ],
+        form:[],
+        shophref:'',
+        imgShow:'',
+        title:''
       }
     },
     created(){
-
+      const self = this;
+      self.form = this.$route.params.item
+      console.log(this.$route.params.item);
+      self.list.push(
+        {title:'作品名',content:self.form.name},
+        {title:'発売月',content:self.form.time},
+        {title:'価格',content:self.form.price},
+        {title:'サイズ',content:self.form.size},
+        {title:'原 型',content:self.form.commodity},
+        {title:'彩 色',content:self.form.editer},
+      )
+      self.shophref = self.form.buy
+      self.imgShow = self.form.imgShow
+      self.title = self.form.name
     },
     mounted(){
         

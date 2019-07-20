@@ -4,7 +4,7 @@
     <b-container>
       <b-row>
         <b-col>
-          <img class="index-top-img" :src="topImg.src" alt="">
+          <img class="index-top-img" src="../assets/index.jpg" alt="">
         </b-col>
       </b-row>
     </b-container>
@@ -16,16 +16,13 @@
       </div>
       <b-row>
         <b-col class="intelligence-content" cols="12" md="6" v-for="(item,index) in intelList" @click="toDetail(item)" :key="index">
-          <img :src="item.src" alt="">
+          <img :src="item.imgMain" alt="">
         </b-col>
       </b-row>
     </b-container>
     <!-- 公告板 -->
     <div class="public-content">
       <h4 class="text-center">公告板块</h4>
-    <!-- <b-list-group>
-      <b-list-group-item class="list-item" v-for="(item,i) in public" :key="i" @click="toBlog(item)">{{item.title}}</b-list-group-item>
-    </b-list-group> -->
       <div class="text-center">{{publicdata.content}}</div>
     </div>
     <!-- 底部联系 -->
@@ -47,7 +44,7 @@
 </template>
 
 <script>
-import { parse } from 'path';
+import { parse, format } from 'path';
 export default {
    data() {
       return {
@@ -58,13 +55,19 @@ export default {
         // 公告区数据
         publicdata:{title:'公告标题',content:'这是公共内容'},
         // 产品列表
-        intelList:[{src:require('../assets/20190521114744_XPBuIdqH.jpg')},{src:require('../assets/20190521114744_XPBuIdqH.jpg')},{src:require('../assets/20190521114744_XPBuIdqH.jpg')},{src:require('../assets/20190521114744_XPBuIdqH.jpg')}]
+        intelList:[
+         
+        ]
       }
     },
     created(){
-      this.$axios.get('http://14.23.115.53:8688/testProject/getAll.do')
+      const self = this;
+      this.$axios.get(self.$url)
         .then(function(res){
-          console.log(JSON.parse(decodeURIComponent(res.data.data)))
+          self.form = JSON.parse(decodeURIComponent(res.data.data));
+          self.form.forEach((item,index)=>{
+            self.intelList.push(item)
+          })
         });
     },
     methods: {
