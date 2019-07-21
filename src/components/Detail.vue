@@ -61,8 +61,7 @@
       </b-container>
       <!-- 跳转购买页 -->
       <div class="submit">
-        <!-- <div class="submit-btn" squared >购买<a href=""></a></div> -->
-        <div class="submit-btn" @click="toShop">购买</div>
+        <div class="submit-btn"  target="_blank" @click="toShop">购买</div>
       </div> 
   </div>
 </template>
@@ -78,7 +77,8 @@ export default {
         ],
         form:[],
         imgShow:'',
-        title:''
+        title:'',
+        url:''
       }
     },
     created(){
@@ -104,7 +104,7 @@ export default {
     },
     methods: {
       toShop(){
-        window.location = `${this.form.buy}`;
+         window.location.href = this.form.buy;
       },
       init(){
         this.list.push(

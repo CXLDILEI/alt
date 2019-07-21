@@ -50,8 +50,6 @@ export default {
       return {
         slide: 0,
         sliding: null,
-        // 头部的图片
-        topImg:{src:'https://picsum.photos/1024/480/?image=52'},
         // 产品列表
         intelList:[]
       }
